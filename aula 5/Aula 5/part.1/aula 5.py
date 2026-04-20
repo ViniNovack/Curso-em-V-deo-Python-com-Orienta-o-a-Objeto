@@ -29,6 +29,7 @@ g3 = Gafanhoto()
 
 # print(g1.__doc__)  # Dunder Attribute
 # print(g1)
-print(g1.__dict__)
-print(g1.__getstate__())
-print(g1.__class__)
+print(g1.__dict__)      #retorna as variaveis da classe como um dicionario
+print(g1.__getstate__())     # também retorna as variaveis da classe, porém ela pode ser perssonalizada
+print(g1.__class__)        # mostra a classe do elemento
+print(g1.__doc__)         # mostra a descrição de qualquer item. Para a classe ele vai mostrar a descrição fita entre as """...""" no início da classe

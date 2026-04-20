@@ -1,5 +1,5 @@
 class Gafanhoto:
-    def __init(self):
+    def __init__(self):
         self.nome = ''
         self.idade = 0
     
