@@ -11,7 +11,7 @@ class Livro:
         else:
             v = 0
             print(f'Atualmete você esta na pagina {self.posição}')
-            for c in range(1, (s + 1)):
+            for c in range((self.posição), (s + 1)):
                 print(f'Pág{c} > ',end='')
                 v +=1
                 self.posição +=1
@@ -21,7 +21,11 @@ class Livro:
                     break
                 else:
                     continue
-            print(f'Você avançou {v} páginas e agora está na página {self.posição}')
+            
+            if self.posição > self.paginas:
+                print(f'Você avançou {v} páginas e agora está na página 20')
+            else:
+                print(f'Você avançou {v} páginas e agora está na página {self.posição}')
 
 
 c1 = Livro('DUNA', 20)
