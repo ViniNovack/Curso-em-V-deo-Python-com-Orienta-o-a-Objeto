@@ -1,26 +1,30 @@
 class Caneta:
-    def __init__(self, cor):
-        if cor == 'branco':
-            self.cor = '\033[30m'
-        elif cor == 'vermelho':
-            self.cor = '\033[31m'
-        elif cor == 'verde':
-            self.cor = '\033[32m'
-        elif cor == 'amarelo':
-            self.cor = '\033[33m'
-        elif cor == 'azul':
-            self.cor = '\033[34m'
-        elif cor == 'magenta':
-            self.cor = '\033[35m'
-        elif cor == 'ciano':
-            self.cor = '\033[36m'
-        elif cor == 'cinza':
-            self.cor = '\033[37m'
+    def __init__(self, cor='azul'):
+        match cor.lower().strip():                                       # match/case !!!!!!!!!!!!!!!!!!!!!!!!!!!
+            case 'branco':
+                self.cor = '\033[30m'
+            case 'vermelho':
+                self.cor = '\033[31m'
+            case 'verde':
+                self.cor = '\033[32m'
+            case 'amarelo':
+                self.cor = '\033[33m'
+            case 'azul':
+                self.cor = '\033[34m'
+            case 'magenta':
+                self.cor = '\033[35m'
+            case 'ciano':
+                self.cor = '\033[36m'
+            case _:                                                      # caso a variavel não se encaixe em nem uma categoria !!!!!!!!!!!!!!!!!!!!
+                self.cor = '\033[1m'
         
         self.tampa = False
     
     def destampar(self):
         self.tampa = True
+    
+    def tampar(self):
+        self.tampa = False
     
     def escrever(self, texto):
         # LIMPAR

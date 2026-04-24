@@ -1,11 +1,15 @@
 class Churrasco:
+    # Atributos de Classe
+    consumo_padrao:float = 0.4
+    preço_kg:float = 82.40
+    
     def __init__(self, titulo, quant):
         self.titulo = titulo
         self.quant = quant
     
     def __str__(self):
-        q = 0.4 * (self.quant)
-        comp = q * 82.4
+        q = Churrasco.consumo_padrao * (self.quant)
+        comp = q * Churrasco.preço_kg
         div = comp / self.quant
         
         return (f'Analisando {self.titulo} com {self.quant} convidados\n'

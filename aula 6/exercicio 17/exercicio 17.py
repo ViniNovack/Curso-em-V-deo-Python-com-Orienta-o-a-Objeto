@@ -5,6 +5,7 @@ class Produto:
     
     def etiqueta(self):
         print('PRODUTO'.center(30))
+        print('=-'*15)
         print(f'{self.nome}'.center(30))
         print('-'*30)
         print(f'{self.preço}\n'.center(30))
