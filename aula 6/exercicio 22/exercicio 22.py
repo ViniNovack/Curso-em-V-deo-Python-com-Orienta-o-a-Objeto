@@ -1,5 +1,6 @@
 from rich import print
 from rich.panel import Panel
+import os
 
 class Controle:
     canal_min:int = 1
@@ -7,16 +8,37 @@ class Controle:
     volume_min:int = 1
     volume_max:int = 6
 
-    def __init__(self, canal = 1, volume = 1, estado=False):
+    def __init__(self, canal = 1, volume = 1, lig=0, estado=False):
         self.canal_atual:int = canal
         self.volume_atual:int = volume
         self.estado_atual:bool = estado
+        self.lig:int = lig
     
-    def ligado(self):
-        self.estado_atual = True
-        print('TV'.center(30))
-        print('-'*30)
-        return True
+    def ligado(self, l='x'):
+        if l == '@':
+            self.lig +=1
+            if self.lig > 1:
+                self.lig = 0
+            
+            if self.lig == 0:
+                self.estado_atual = False
+                print('🚫 A TV está desligada')
+                return False
+            elif self.lig == 1:
+                self.estado_atual = True
+                print('TV'.center(30))
+                print('-'*30)
+                return True
+        elif l == 'x':
+            if self.lig == 0:
+                self.estado_atual = False
+                print('🚫 A TV está desligada')
+                return False
+            elif self.lig == 1:
+                self.estado_atual = True
+                print('TV'.center(30))
+                print('-'*30)
+                return True
 
     def canais(self):
         if self.estado_atual == True:
@@ -28,7 +50,7 @@ class Controle:
                     conteudo += (f' {c} ')
             return conteudo
         elif self.estado_atual == False:
-            return('🚫 A TV está desligada')
+            return ''
     
     def volume(self):
         if self.estado_atual == True:
@@ -41,6 +63,8 @@ class Controle:
                         valores +=(f'[black on black] [/]')
                     break      
             return valores
+        else:
+            return ''
 
     def troca(self, s):
         if s == '>':
@@ -62,14 +86,30 @@ class Controle:
 
 c1 = Controle()
 c1.ligado()
-print(c1.canais())
-print(c1.volume())
+l = False
 while True:
-    x = input(str('Digite < ou >: \n'))
+    x = input(str('Digite: @ para ligar ou desligar '
+                  '< ou > para canais / + ou - para volume \n'))
     if x == '0':
+        os.system('cls')
         print('FIM')
         break
+    elif x == '@' or x == '>' or x =='<' or x == '+' or x == '-':
+        if x == '@':
+            os.system('cls')
+            l = c1.ligado(x)
+            print(c1.canais())
+            print(c1.volume())
+        else:
+            if l == True:
+                os.system('cls')
+                c1.troca(x)
+                c1.ligado()
+                print(c1.canais())
+                print(c1.volume())
+            else:
+                os.system('cls')
+                c1.ligado()
     else:
-        c1.troca(x)
-        print(c1.canais())
-        print(c1.volume())
+        os.system('cls')
+        c1.ligado()
