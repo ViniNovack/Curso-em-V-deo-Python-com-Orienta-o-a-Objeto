@@ -1,6 +1,6 @@
 class Caneta:
     def __init__(self, cor='azul'):
-        match cor.lower().strip():                                       # match/case !!!!!!!!!!!!!!!!!!!!!!!!!!!
+        match (cor.lower()).strip():                                       # match/case !!!!!!!!!!!!!!!!!!!!!!!!!!!
             case 'branco':
                 self.cor = '\033[30m'
             case 'vermelho':
