@@ -8,8 +8,7 @@ class Horista(Funcionario):
 
     def calc_sal(self) -> str:
         s = self.valor_horas * self.qtd_horas
-        s *=Funcionario.inss
         return super().calc_sal(s)
     
-    def analisar_sal(self):
-        pass
+    def analisar_sal(self) -> str:
+        return super().analisar_sal()

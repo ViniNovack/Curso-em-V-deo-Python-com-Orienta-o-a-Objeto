@@ -9,8 +9,11 @@ class Funcionario(ABC):
 
     @abstractmethod
     def calc_sal(self, salario:int) -> str:
-        return f'O salário de/a {self.nome} é de {salario}.'
+        s = salario * Funcionario.inss
+        self.salario = s
+        return (f'{'ANÁLISE DE SALÁRIO':^74}\n') + (f'O salário de/a {self.nome} é de {s:.2f}. ')
 
     @abstractmethod
-    def analisar_sal(self, analize:int) -> str:
-        return f'Ele corresponde a {analize} salários mínimos.'
+    def analisar_sal(self) -> str:
+        a = self.salario / Funcionario.sal_min
+        return f'Ele corresponde a {a:.2f} salários mínimos.'
