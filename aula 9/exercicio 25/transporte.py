@@ -5,6 +5,9 @@ class Transporte(ABC):
         self.transporte = transporte
         self.distancia = distancia
 
+    def nome(self) -> str:
+        return f'{self.transporte}'
+
     @abstractmethod
     def calc_frete(self):
         pass
