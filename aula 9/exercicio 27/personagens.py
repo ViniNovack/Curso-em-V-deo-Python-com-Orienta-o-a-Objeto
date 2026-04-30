@@ -10,17 +10,21 @@ class Personagens(ABC):
     @abstractmethod
     def atacar(self, alvo, força):
         f = randrange(1, 7)
-        ataq = força * (0.166 * f)
-        alvo.vida -=ataq
+        self.ataq = força * (0.166 * f)
+        alvo.vida_atual -=self.ataq
     
     @abstractmethod
     def curar(self):
         vv = self.vida_atual
-        v = self.vida_max / 2
+        self.v = self.vida_max / 2
         f = randrange(1, 7)
-        v *=(0.166 * f)
-        vv +=v
-        if vv > self.vida:
+        self.v *=(0.166 * f)
+        vv +=self.v
+        if vv > self.vida_max:
+            self.v = self.vida_max - self.vida_atual
             self.vida_atual = self.vida_max
         else:
-            self.vida_atual +=v
+            self.vida_atual +=self.v
+    
+    def ver_vida(self):
+        return f'A vida do {self.nome} é {self.vida_atual:.2f}'
