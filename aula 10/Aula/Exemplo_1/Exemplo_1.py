@@ -25,3 +25,23 @@ class ContaBancaria:
         else:
             self.saldo -=valor
             print(f'Saque de R${valor:.2f} autorizado na conta {self.id}')
+
+"""
+    Existem três tipos de visibilidade para atributos em linguagem POO:
+    > public +
+    > protected #
+    > private -
+
+    public(+): Ela esta disponivel para todo o projeto
+    protected(#): Ela esta disponivel para suas classes filhas
+    private(-): Ela esta disponivel para a propria classe, mesmo as filhas não tem acesso
+
+    ---- O PYTHON NÃO CONSIDERA NADA DISSO!("Liberdade com responsabilidade")
+    Em python:
+    > (+) atrib1
+    > (#) _atrib2
+    > (-) __atrib3
+    Apesar delas estarem referenciadas como publics, protecteds e privates elas ainda podem ser alteradas, mas CONVENCIONALMENTE não são.(Mas podem!)
+    
+    !!!!!!!!!!! Essas mudanças e a ideia de poder mudar é possivel somente em python em outras linguagens como java, por exemplo, isso NÃO É POSSIVEL !!!!!!!!!!!!!!!
+"""
