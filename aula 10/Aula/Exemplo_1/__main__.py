@@ -1,4 +1,4 @@
-from Exemplo_1 import ContaBancaria
+from Exemplo_8 import ContaBancaria
 
 def main():
     c1 = ContaBancaria(111, 'Maria', 5_000)
