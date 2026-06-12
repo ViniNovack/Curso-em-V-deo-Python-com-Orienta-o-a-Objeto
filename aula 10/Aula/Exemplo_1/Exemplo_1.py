@@ -9,7 +9,8 @@ class ContaBancaria:
         print(f'Conta {self.id} criada com sucesso. Saldo atual de R${self.saldo:.2f}')
 
     def __str__(self):
-        return f'A conta {self.id} de {self.titular} tem R${self.saldo:.2f} de saldo.'
+        # return f'A conta {self.id} de {self.titular} tem R${self.saldo:.2f} de saldo.'
+        return f'Estado atual da conta: {self.__dict__}'             # "__dict__" ele tem a função de mostrar as variaveis com seus respectivos valores da função mâe
     
     def depositar(self, valor):
         self.saldo +=valor
@@ -19,14 +20,8 @@ class ContaBancaria:
         if valor > self.saldo:
             x = str(input('Você não tem todo esse dinheiro, mas você pode sacar todo o valor da comta? (Y/N)\n'))
             if (x.lower()).strip() == 'y':
-                c1.sacar(self.saldo)
+                self.sacar(self.saldo)
                 print(f'Saque de R${self.saldo:.2f} autorizado na conta {self.id}')
         else:
             self.saldo -=valor
             print(f'Saque de R${valor:.2f} autorizado na conta {self.id}')
-
-
-c1 = ContaBancaria(122, 'Gustavo', 3000)
-c1.depositar(500)
-c1.sacar(2_000_000)
-print(c1)
