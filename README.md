@@ -1,4 +1,4 @@
-# 🐍 Python OOP Projects
+# 🐍 Python POO Projects
 
 A repository dedicated to my journey learning **Object-Oriented Programming with Python** — each project here was built to practice and understand the core concepts of OOP.
 
