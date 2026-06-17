@@ -1,8 +1,9 @@
-from abc import ABC, abstractmethod
-
-class Termostato(ABC):
+class Termostato():
     def __init__(self):
         self.__temperatura = 24
+    
+    def __str__(self) -> str:
+        return f'O termostato foi LIGADO'
     
     @property
     def temperatura(self):
@@ -10,17 +11,23 @@ class Termostato(ABC):
     
     @temperatura.setter
     def temperatura(self, valor):
-        if (16 <= valor <= 30):
-            self.__temperatura == valor
+        if (16 <= valor <= 30) and (valor % 1 in (0, 0.5)):
+            self.__temperatura = valor
+
+        elif (valor > 30) and (valor % 1 in (0, 0.5)):
+            self._temperatura = 30
+
+        elif (valor < 16) and (valor % 1 in (0, 0.5)):
+            self._temperatura = 16
+
         else:
-            return f'O termostato já atingiu o valor mínimo/máximo: {self.__temperatura}ºC'
+            return f'O termostato já atingil o seu valor mínimo/maximo de {self.temperatura}ºC'
 
-    @abstractmethod
-    def mostrar(self):
-        return f'A temperatura atual é {self.__temperatura}'
-    
-    def aumentar_temp(self):
-        pass
+    def aumentar_temp(self, valor=1):
+        self.temperatura +=(0.5 * valor)
 
-    def baixar_temp(self):
-        pass
+    def baixar_temp(self, valor=1):
+        self.temperatura -=(0.5 * valor)
+
+    def mostrar_temp(self):
+        return f'A temperatura atual é {self.temperatura}'
