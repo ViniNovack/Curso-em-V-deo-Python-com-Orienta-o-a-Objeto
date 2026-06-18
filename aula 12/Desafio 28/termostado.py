@@ -15,10 +15,10 @@ class Termostato():
             self.__temperatura = valor
 
         elif (valor > 30) and (valor % 1 in (0, 0.5)):
-            self._temperatura = 30
+            self.__temperatura = 30
 
         elif (valor < 16) and (valor % 1 in (0, 0.5)):
-            self._temperatura = 16
+            self.__temperatura = 16
 
         else:
             return f'O termostato já atingil o seu valor mínimo/maximo de {self.temperatura}ºC'

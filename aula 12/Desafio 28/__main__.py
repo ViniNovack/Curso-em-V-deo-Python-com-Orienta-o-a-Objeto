@@ -14,7 +14,10 @@ def main():
     t.temperatura = 20
     print(t.mostrar_temp())
 
-    t.temperatura = 31
+    t.temperatura = 32
+    print(t.mostrar_temp())
+
+    t.temperatura = 14
     print(t.mostrar_temp())
 
 if __name__ == '__main__':
