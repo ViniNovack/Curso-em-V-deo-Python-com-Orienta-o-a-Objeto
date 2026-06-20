@@ -2,7 +2,6 @@ class Retangulo():
     def __init__(self, base=0, altura=0):
         self._base = base
         self._altura = altura
-        self._medidas = (self._base, self._altura)
         self._area = None
     
     @property
@@ -19,7 +18,7 @@ class Retangulo():
     @property
     def altura(self):
         return self._altura
-    
+
     @altura.setter
     def altura(self, valor):
         if valor <= 0:
@@ -33,12 +32,12 @@ class Retangulo():
 
     @property
     def medidas(self):
-        return self._medidas
+        return f'Base = {self.base}\nAltura = {self.altura}\nÁrea = {self.area}'
 
     @medidas.setter
     def medidas(self, medidas):
         if (medidas[0] <= 0) or (medidas[1] <= 0):
             raise ValueError('Não se pode inserir valores negativos ou 0')
         else:
-            self._medidas = (medidas[0], medidas[1])
-        return f'Base = {self.base}\nAltura = {self.altura}\nÁrea = {self.area}'
+            self._base = medidas[0]
+            self._altura = medidas[1]
