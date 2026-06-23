@@ -63,3 +63,7 @@ class Pessoa(ABC):
         else:
             raise ValueError('A idade precisa ser um valor inteiro')
 #   -----------------------------------------------------------------------------------
+
+    @abstractmethod
+    def mostrar(self, ob):
+        print(ob.__dict__)

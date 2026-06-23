@@ -37,3 +37,6 @@ class Aluno(Pessoa):
             (self.cursos_oficiais).append(curso)
         else:
             raise ValueError('Só se aceita valores strings')
+
+    def mostrar(self, ob):
+        super().mostrar(ob)

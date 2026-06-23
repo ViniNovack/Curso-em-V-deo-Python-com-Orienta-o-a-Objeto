@@ -8,6 +8,10 @@ def main():
     a1.curso = 'MODA'
     a1.nascimento = 2010
 
+    a1.mostrar(a1)
+
+    print('\n')
+
     inspect(a1, private=True, methods=True)
 
 if __name__ == '__main__':
