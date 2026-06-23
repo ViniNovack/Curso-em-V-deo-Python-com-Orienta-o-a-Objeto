@@ -20,5 +20,8 @@ def main():
     t.temperatura = 14
     print(t.mostrar_temp())
 
+    t.temperatura = 22.2
+    print(t.mostrar_temp())
+
 if __name__ == '__main__':
     main()
