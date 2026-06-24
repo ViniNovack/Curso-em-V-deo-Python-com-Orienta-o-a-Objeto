@@ -11,17 +11,24 @@ class Termostato():
     
     @temperatura.setter
     def temperatura(self, valor):
-        if (16 <= valor <= 30) and (valor % 1 in (0, 0.5)):
+        if valor % 0.5 != 0:
+            raise ValueError(f'A Temperatura {valor} é INVALIDA!')
+
+        if (16 <= valor <= 30):
             self.__temperatura = valor
 
-        elif (valor > 30) and (valor % 1 in (0, 0.5)):
+        elif (valor > 30):
             self.__temperatura = 30
 
-        elif (valor < 16) and (valor % 1 in (0, 0.5)):
+        elif (valor < 16):
             self.__temperatura = 16
 
         else:
-            print(f'O termostato já atingil o seu valor mínimo/maximo de {self.temperatura}ºC')
+            print(f'O valor {self.temperatura} ultrabaça os valores minímo/maximo do termostato.')
+    
+    @property
+    def ftemperatura(self):
+        return f'{self.__temperatura}{chr(176)}C'
 
     def aumentar_temp(self, valor=1):
         self.temperatura +=(0.5 * valor)
@@ -30,4 +37,4 @@ class Termostato():
         self.temperatura -=(0.5 * valor)
 
     def mostrar_temp(self):
-        print(f'A temperatura atual é {self.temperatura}')
+        print(f'A temperatura atual é {self.ftemperatura}')
