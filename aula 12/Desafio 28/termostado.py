@@ -21,7 +21,7 @@ class Termostato():
             self.__temperatura = 16
 
         else:
-            return f'O termostato já atingil o seu valor mínimo/maximo de {self.temperatura}ºC'
+            print(f'O termostato já atingil o seu valor mínimo/maximo de {self.temperatura}ºC')
 
     def aumentar_temp(self, valor=1):
         self.temperatura +=(0.5 * valor)
@@ -30,4 +30,4 @@ class Termostato():
         self.temperatura -=(0.5 * valor)
 
     def mostrar_temp(self):
-        return f'A temperatura atual é {self.temperatura}'
+        print(f'A temperatura atual é {self.temperatura}')
