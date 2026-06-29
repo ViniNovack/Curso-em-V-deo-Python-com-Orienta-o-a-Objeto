@@ -5,6 +5,7 @@ def main():
     d.escrever = 'Primeira mensagem'
     d.escrever = 'Você é uma pessoa simpática'
     d.escrever = 'Você gosta de Python'
+    d.escrever = 'Você é especial'
 
     d.ler('senha123')
 

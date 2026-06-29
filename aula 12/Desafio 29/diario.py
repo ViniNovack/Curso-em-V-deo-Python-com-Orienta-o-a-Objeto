@@ -22,3 +22,11 @@ class Diario():
                 print('- ', c)
         else:
             print('!!ESCREVA A SENHA CORRETA PARA LER!!')
+
+    @property
+    def senha(self):
+        raise PermissionError('Ninguém tem permissão de ver a senha')
+    
+    @senha.setter
+    def senha(self, nova_senha):
+        pass
