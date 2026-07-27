@@ -12,7 +12,7 @@ def main():
 
     print('\n')
 
-    inspect(a1, private=True, methods=True)
+    inspect(a1, private=True, methods=True)    
 
 if __name__ == '__main__':
     main()

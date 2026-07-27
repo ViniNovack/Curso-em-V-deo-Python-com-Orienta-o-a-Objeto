@@ -9,20 +9,11 @@ def verf_idade(date_ano):
         return False
 
 class Pessoa(ABC):
-    def __init__(self, nome:str, nasc:int, idade=None):
+    def __init__(self, nome:str, nasc:int):
         self._nome = nome
-        
-        if verf_idade(nasc):
-            self._nascimento = nasc
-        else:
-            raise ValueError('Essa data é INVALIDA!')
-        
-        if idade == None:
-            ano = datetime.now().year
-            self.__idade = ano - nasc
-        else:
-            raise ValueError('A idade não pode ser alterada apenas a data de nascimento')
-
+        self._nascimento = None
+        self.nascimento = nasc
+        self.__idade = self.idade
 #   ------------------------------------- NOME -------------------------------------
     @property
     def nome(self):
@@ -45,7 +36,6 @@ class Pessoa(ABC):
         if isinstance(nasc, int):
             if verf_idade(nasc):
                 self._nascimento = nasc
-                self.__idade = (datetime.now().year) - nasc
             else:
                 raise ValueError('Essa data é INVALIDA!')
         else:
@@ -54,16 +44,13 @@ class Pessoa(ABC):
 #   ------------------------------------- IDADE -------------------------------------
     @property
     def idade(self):
-        return self.__idade
+        return datetime.now().year - self._nascimento
     
     @idade.setter
     def idade(self, idade):
-        if isinstance(idade, int):
-            self.__idade = idade
-        else:
-            raise ValueError('A idade precisa ser um valor inteiro')
-#   -----------------------------------------------------------------------------------
+        raise PermissionError("Você não pode alterar a idade. Mude o ano de nascimento!")
 
+#   -----------------------------------------------------------------------------------
     @abstractmethod
     def mostrar(self, ob):
         print(ob.__dict__)
