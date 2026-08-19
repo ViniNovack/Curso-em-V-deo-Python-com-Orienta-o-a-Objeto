@@ -1,7 +1,7 @@
 from functools import singledispatchmethod
 
 class Analisador:
-    @singledispatchmethod         # Caso ele não identifique nem um tipo estabelesido ele executa esse
+    @singledispatchmethod      # Caso ele não identifique nem um tipo estabelesido ele executa esse
     def analisar(self, valor):
         print(f"Não foi possível analizar o valor {valor}")
 
