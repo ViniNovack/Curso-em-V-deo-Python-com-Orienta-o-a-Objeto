@@ -13,11 +13,14 @@ class Pagamento(ABC):
 
     @property
     def valor(self):
-        pass
+        return self.__valor
 
     @valor.setter
     def valor(self, valor):
-        pass
+        raise TypeError("Não se pode alterar o valor")
+    
+    def _definir_valor(self, valor):
+        self.__valor = valor
 
 
 # DUCK TYPING
