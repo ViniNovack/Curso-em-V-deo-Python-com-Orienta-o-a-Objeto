@@ -1,7 +1,7 @@
 from abc import ABC
 
 class Arquivo(ABC):
-    def __init__(self, nome, tamanho, extensao):  #baites /6
+    def __init__(self, nome, tamanho, extensao):
         self.nome = nome
         self.tamanho = tamanho
         self._extensao = extensao
