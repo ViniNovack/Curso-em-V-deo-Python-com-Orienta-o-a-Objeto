@@ -22,8 +22,8 @@ class Carrinho():
         else:
             raise TypeError("Só é possivel adicionar carrinho e produto")
 
-        return Carrinho()
+        return self
 
     def __str__(self):
-        texto_formatado = "\n".join(self.produtos)
+        texto_formatado = "\n".join(str(s) for s in self.produtos)
         return texto_formatado
